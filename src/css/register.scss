@@ -1,0 +1,105 @@
+@import "style";
+
+
+#header-container {
+visibility: hidden; }
+
+.container{
+    padding-top: 140px;
+    margin-bottom: 299px;
+}
+.container-wrap {
+border: none;
+box-shadow: none;
+margin-top: 60px;
+margin: 120px auto; }
+
+.container-wrap .welcome {
+border-color: #fff;
+padding: 0;
+width: 100%;
+text-align: center;
+margin-bottom: 28px;
+margin: 0 auto;
+font-size: 23px; }
+
+.container-wrap .welcome span {
+font-size: 20px;
+color: #222;
+display: inline-block;
+margin-right: 10px;
+vertical-align: middle; }
+
+.container-wrap .welcome a {
+text-decoration: none;
+outline: none;
+color: #666; }
+
+.container-wrap .welcome a img {
+width: 76px;
+height: 26px; }
+
+.go {
+width: 330px;
+height: 40px;
+margin: 0 auto; }
+
+.go input {
+width: 330px;
+height: 40px;
+outline: none; }
+
+.go .go1 {
+width: 330px;
+height: 40px;
+margin: 0 auto;
+padding: 0;
+margin-bottom: 15px; }
+
+.go .go2 {
+position: relative;
+width: 330px;
+height: 40px;
+margin: 0 auto;
+padding: 0;
+margin-bottom: 15px; }
+
+.yzm {
+right: 2px;
+top: 1px;
+height: 38px;
+position: absolute; }
+
+.button {
+width: 330px;
+height: 40px;
+margin: 0 auto;
+margin-top: 70px; }
+
+.button #btn {
+width: 330px;
+height: 40px;
+margin: 0 auto;
+background-color: #03234c;
+color: #fff;
+outline: none;
+border-top-style: none;
+border-right-style: none;
+border-bottom-style: none;
+border-left-style: none;
+cursor: pointer; }
+
+.bottom {
+width: 330px;
+height: 40px;
+margin: 0 auto; }
+
+.bottom .container {
+margin-top: 20px;
+text-align: center; }
+
+.bottom .container a {
+color: #666; }
+#footer-container{
+    margin-top: 66px;
+}

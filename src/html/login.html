@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="/css/login.css" />
+	<link rel="stylesheet" href="/css/headerandfooter.css">
+
+</head>
+
+<body>
+	<div class="header" id="header-container"></div>
+
+	<div class="big-box">
+		<div class="box">
+			<div class="left">
+				<div class="title">
+					<span>欢迎登陆</span>
+					<a href="/index.html">
+						<img src="/img/index/fila_blue_150.png" alt="">
+					</a>
+				</div>
+				<div class="login">
+					<a class="e-login-detial-account">
+						<h4 class="float-clearfix">账号密码登录</h4>
+					</a>
+					<a class="e-login-detial-mobile">
+						<h5 class="float-clearfix login-detial-border">短信快捷登录/注册</h5>
+					</a>
+				</div>
+				<div class="phone">
+					<input type="text" id="username" placeholder="手机号">
+				</div>
+				<div class="pwd">
+					<input type="password" id="password" placeholder="密码">
+				</div>
+				<div class="btn">
+					<button id="btn">立即登录</button>
+				</div>
+				<div class="three">
+					<span class="line"></span>
+					<span class="trust-login">第三方信任登录</span>
+					<span class="line"></span>
+				</div>
+				<div class="panel-footer">
+					<ul class="list-inline oauth-login-list">
+						<li><img src="/img/login/qq.png" class="qq">
+						</li>
+					</ul>
+				</div>
+				<div class="forget-pswd">
+					<a href="javascript:;" class="forget-pswd-a">忘记密码?</a>
+				</div>
+			</div>
+			<div class="right">
+				<div class="right-container">
+					<h2>加入FILA V.I.P.</h2>
+					<p>注册成为会员并完善个人信息，即可享受 ：</p>
+					<ul class="join">
+						<li>注册即送50元现金券；</li>
+						<li>积分可在官网购物时作为现金抵扣；</li>
+						<li>官网、门店消费共享会员权益和积分累计；</li>
+						<li>即时收到优惠及新品发布信息，品牌活动邀约</li>
+					</ul>
+					<a class="btn-register" href="/html/register.html" title="立即注册">立即注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer" id="footer-container"></div>
+	<script src="/lib/jquery/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		var nameInput = document.querySelector("#username");
+		var pwdInput = document.querySelector("#password");
+		document.querySelector("#btn").onclick = function () {
+			var username = nameInput.value;
+			var password = pwdInput.value;
+			// 通过ajax取发送登录请求
+			// 1、创建ajax对象
+			var xhr = new XMLHttpRequest();
+			var obj={
+				username:nameInput.value,
+				password:pwdInput.value
+			}
+			console.log(obj)
+			// 2、 简历连接
+			$.post("http://localhost/api/v1/login.php",obj,res=>{
+				res=JSON.parse(res);
+					alert(res.res_message)
+					console.log(res)
+					if(res.res_code==1){
+
+						location.href = "/index.html";
+					}
+			})
+			// 阻止表单的默认提交
+			return false;
+		}
+		let stor=localStorage.getItem("re")
+	</script>
+</body>
+
+</html>

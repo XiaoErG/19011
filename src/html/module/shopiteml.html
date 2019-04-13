@@ -1,0 +1,21 @@
+
+<script type="text/html" id="shop-list">
+    <ul>
+      {{each list item}}
+      <li class="xiangqing">
+        <a href="/html/detail.html?id={{ item.id }}"> 
+          
+          <img src="{{ item.img }}" alt="">
+          <p class="text">{{ item.title }}</p> 
+        </a>
+        <p class="cle">
+            <span>￥</span><span class=" price">{{ item.price }}</span>
+  
+            <i class="iconfont icon-huo"></i>
+            <span class="hot">4</span>
+        </p>
+      </li>
+      {{ /each }}
+  
+    </ul>
+  </script>

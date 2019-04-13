@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="/css/register.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/headerandfooter.css"/>
+	</head>
+	<body>
+		<div class="header" id="header-container"></div>
+		<div class="container">
+			<div class="container-wrap">
+				<div class="welcome">
+					<span>欢迎加入</span>
+					<a href="/index.html"><img src="/img/index/fila_blue_150.png" alt=""></a>
+				</div>
+			</div>
+
+			<div class="go">
+				<div class="go1">
+					<input type="text" id="username" placeholder="手机号">
+				</div>
+				<div class="go2">
+					<input type="password" id="password"  placeholder="密码">
+				</div>
+			</div>
+			<div class="button">
+				<button id="btn">确定</button>
+			</div>
+			<div class="bottom">
+				<div class="container">
+					<a class="text-center" href="/html/login.html">已有账号？立即登录</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer" id="footer-container"></div>
+		<script src="/lib/requirejs/require.js" data-main="/js/index.js"></script>
+		<script src="/js/tools.js"></script>
+		<script src="/lib/jquery/jquery-3.2.1.js"></script>
+		<script>
+			var userInput = document.querySelector("#username");
+			var pwdInput = document.querySelector("#password");
+			
+			document.querySelector("#btn").onclick = function(){
+				var username = userInput.value;
+				var password = pwdInput.value;
+				// ---发送服务器验证注册成功---
+				console.log(username,password)
+				// 存cookie
+				var registerObj = {
+					"username" : username,
+					"password" : password
+				};
+				$.post("http://localhost/api/v1/register.php",registerObj,res=>{
+					console.log(res)
+					res=JSON.parse(res);
+					alert(res.res_message)
+					if(res.res_code==1){
+
+						location.href = "/html/login.html";
+					}
+				})
+
+				tools.cookie("register",JSON.stringify(registerObj), {path: "/"});
+				// if()
+				// 跳转登录页面
+				
+				// 阻止默认提交
+				return false;
+			}
+		</script>
+	</body>
+</html>

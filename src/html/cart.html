@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="/css/headerandfooter.css">
+    <link rel="stylesheet" href="/css/cart1.css">
+</head>
+
+<body>
+    <div class="header" id="header-container"></div>
+    <!--没商品-->
+
+    <div class="cart1" style="display: none;" id="Nlogin">
+            <div class="cart-not-pro">
+                <h5 style="height: 50px;line-height: 50px; text-align: center;font-weight: normal; font-size: 20px;background: #f5f5f5;">购物车</h5>
+               <div class="cart-not-pro" style="text-align: center;font-size: 20px; margin-top: 130px; margin: 0 auto;"><span>您还未登录，请先登录把！</span></div>
+                        <button id="none" style="background:#03234c;color:#fff;border: none;width: 90px; height: 31.5px;margin-top: 40px;text-align: center;">
+                                <a style ="text-decoration: none; color: #fff;"href="/html/list.html" style="color:#fff;outline: none;">立即登录</a>
+                        </button>
+                </div>
+    </div>
+    <!--有商品-->
+    <div class="cart" id="Ylogin">
+        <div class="cart-box">
+            
+            <table class="cart-info">
+                <thead>
+                    <tr style="height: 60px; line-height: 60px;border-bottom: 1px solid #ccc;">
+                        <th style="width:113px;border: none;">
+                            <input  style="margin-left: 26px;" type="checkbox" class="check-all" />全部商品
+                        </th>
+                        <th style="width:668px;">
+                            商品信息
+                        </th>
+                        <th style="width:134px;">单价</th>
+                        <th style="width:197px;">数量</th>
+                        <th style="width:134px;">小计</th>
+                        <th style="width:134px;">操作</th>
+                    </tr>
+                </thead>
+
+                <tbody class="cart-info-box">
+                    <!-- <tr class="cart-shop" " data-id="{{item.id}}" data-color="{{item.color}}" data-size="{{item.size}}" data-title="{{item.title}}" data-img="{{item.img}}" data-price="{{item.price}}" data-type="{{item.type}}">
+                                <td>
+                                    <input type="checkbox"  class="check-some"/>
+                                </td>
+                                <td style="position:relative;">
+                                    <a href="/html/product.html?id={{item.id}}&type={{item.type}}" class="cart-a-style"><img src="{{item.img}}"/></a>
+                                    <p class="cart-p-style" style="left:60px;"><a href="/html/product.html?id={{item.id}}&type={{item.type}}" style="color: #3366cc;">{{item.title}}</a></p>
+                                   <p class="cart-p-style" style="float:left;left: 50px;top:15px;">
+                                    <span class="cart-span-style">颜色：<i>{{item.color}}</i></span>
+                                    <span class="cart-span-style">尺码：<i>{{item.size}}</i></span>
+                                  </p>
+                                </td>
+                                <td >￥<a style="font-weight:bold;">{{item.price}}</a></td>
+                                <td>
+                                    <span class="cart-count-span">-</span>
+                                    <input type="text" value="{{item.amount}}" class="cart-count-input"/>
+                                    <span class="cart-count-span">+</span>
+                                </td>
+                                <td>
+                                    <span >￥<a style="font-weight:bold;" class="shop_sub">{{(item.amount*item.price).toFixed(2)}}</a></span><br>
+                                    <span style=input.check-some"color:#fea200">已优惠&nbsp;<a>78.00</a>元</span>
+                                </td>
+                                <td>
+                                    <a href="javascript:0" class="del">删除</a>
+                                </td>
+                            </tr> -->
+                </tbody>
+
+            </table>
+            <div class="set-cart">
+                <button id="none" style="background:#03234c;color:#fff;border: none;width: 90px; height: 31.5px;">
+                <a href="/html/list.html" style="color:#fff;outline: none;">去选购商品</a>
+            </button>
+                <a class="cart-button2-style" href="javascript:;">立即结算</a>
+                <div class="cart-text">
+                    <p>已选商品：
+                        <a style="color:red;font-weight:bold;" class="style-num">0
+                        </a>款/共<a style="color:red;font-weight:bold;" class="good-num">0</a>
+                        件 &nbsp;商品总价： ￥
+                        <a style="color:red;font-weight:bold; font-size: 14px;" class="good-totalPrice">0.00</a>
+                    </p>
+                </div>
+            </div>
+
+
+                <button class="cart-button1-style">清空购物车</button>
+            
+
+        </div>
+    </div>
+
+
+    <div class="footer" id="footer-container"></div>
+
+    <script type="text/html" id="cart-template">
+     {{each list item index}}
+    <tr class="cart-shop" " data-id="{{item.id}}" data-color="{{item.color}}" data-size="{{item.size}}" data-title="{{item.title}}" data-img="{{item.img}}" data-price="{{item.price}}" data-type="{{item.type}}">
+        <td>
+            <input type="checkbox"  class="check-some"/>
+        </td>
+        <td style="position:relative;">
+            <a href="/html/product.html?id={{item.id}}&type={{item.type}}" class="cart-a-style"><img src="{{item.img}}"/></a>
+            <p class="cart-p-style" style="left:60px;"><a href="/html/product.html?id={{item.id}}&type={{item.type}}" style="color:#000;">{{item.title}}</a></p>
+           <p class="cart-p-style" style="float:left;left: 50px;top:15px;">
+            <span class="cart-span-style">颜色：<i>{{item.color}}</i></span>
+            <span class="cart-span-style">尺码：<i>{{item.size}}</i></span>
+          </p>
+        </td>
+        <td >￥<a style="font-weight:bold;">{{item.price}}</a></td>
+        <td>
+            <span class="cart-count-span minus">-</span>
+            <input type="text" value="{{item.amount}}" class="cart-count-input"/>
+            <span class="cart-count-span plus">+</span>
+        </td>
+        <td>page
+            <span >￥<a style="font-weight:bold;" class="shop_sub">{{(item.amount*item.price).toFixed(2)}}</a></span><br>
+            
+        </td>
+        <td>
+            <a href="javascript:0" class="del">删除</a>
+        </td>
+    </tr>
+    {{/each}}
+    </script>
+    <script src="/lib/requirejs/require.js" data-main="/js/cart.js"></script>
+    <script src="/lib/jquery/jquery-3.2.1.js"></script>
+    s
+</body>
+
+</html>
